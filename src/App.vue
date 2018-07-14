@@ -19,7 +19,6 @@ const OFFSET_Y = 0;
 export default {
   name: 'app',
   components: {
-    HelloWorld
   },
   mounted: () => {
     var ear_left = document.getElementById("left");

@@ -29,14 +29,29 @@ export default {
     // TODO: wait until onload
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
+    var video = document.getElementById('video');
 
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
       tracker.setStepSize(2);
       tracker.setEdgesDensity(0.1);
 
-      tracking.track('#video', tracker, { camera: true });
-
+      // tracking.track('#video', tracker, { camera: true });
+      window.navigator.getUserMedia({
+        video: true,
+        audio: false
+      }, function(stream) {
+          try {
+            video.srcObject = stream;
+          } catch (err) {
+            video.src = window.URL.createObjectURL(stream);
+          }
+        }, function() {
+          throw Error('Cannot capture user camera.');
+        }
+      );
+      tracking.trackVideo_(video, tracker, {camera: true});
+      
       tracker.on('track', function(event) {
         if (event.data.length == 0) {
           return;

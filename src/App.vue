@@ -10,8 +10,11 @@
 </template>
 
 <script>
-import Tracking from 'tracking/build/tracking'
+import 'tracking/build/tracking'
 import 'tracking/build/data/face'
+
+// For ESLint:
+/* global tracking */
 
 const OFFSET_X = -10;
 const OFFSET_Y = 0;
@@ -24,7 +27,6 @@ export default {
     var ear_left = document.getElementById("left");
     var ear_right = document.getElementById("right");
     // TODO: wait until onload
-    var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
 
@@ -53,11 +55,6 @@ export default {
           context.fillText('y: ' + rect.y + 'px', rect.x + rect.width + 5, rect.y + 22);*/
         });
       });
-
-      var gui = new dat.GUI();
-      gui.add(tracker, 'edgesDensity', 0.1, 0.5).step(0.01);
-      gui.add(tracker, 'initialScale', 1.0, 10.0).step(0.1);
-      gui.add(tracker, 'stepSize', 1, 5).step(0.1);
   }
 }
 </script>

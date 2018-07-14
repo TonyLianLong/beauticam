@@ -3,6 +3,9 @@
 一个萌到炸的小创意，是我没事用业余时间做的，使用纯前端的方式给你的脸加上猫耳朵，虽然因为偷懒Vue.js用得不是很好，但至少能用了。猫耳朵是自己用AI画哒~ 喜欢的话就给个star咯。
 
 ## 如何使用
+点击 [这里](https://tonylianlong.github.io/beauticam/) 试用我们的Demo。
+
+## 从源码开始
 ```shell
 # 在clone下来代码后
 yarn install
